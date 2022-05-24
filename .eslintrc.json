@@ -1,0 +1,19 @@
+{
+    "extends": [
+        "airbnb-base",
+        "airbnb-typescript/base"
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "rules": {
+        "no-plusplus": "off",
+        "no-await-in-loop": "off",
+        "no-mixed-operators": "off",
+        "import/prefer-default-export": "warn",
+        "linebreak-style": ["error", "unix"],
+        "@typescript-eslint/consistent-type-imports": ["error", { "prefer": "type-imports" }],
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-confusing-void-expression": ["error", { "ignoreArrowShorthand": true }]
+    }
+}

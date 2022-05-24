@@ -1,0 +1,51 @@
+{
+  "name": "hexo-extract-images",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist/*.js"
+  ],
+  "bin": {
+    "hexo-extract-images": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "start": "node dist/index.js",
+    "debug": "DEBUG=hexo-extract-images:* node dist/index.js",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "prepublishOnly": "npm run lint && npm run build"
+  },
+  "author": "Jehy<npm@jehy.ru>",
+  "repository": "https://github.com/jehy/hexo-extract-images.git",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "0.27.2",
+    "commonmark": "0.30.0",
+    "debug": "4.3.4",
+    "fs-extra": "10.1.0",
+    "glob": "8.0.3",
+    "p-map": "4.0.0",
+    "yargs": "17.5.1"
+  },
+  "devDependencies": {
+    "@types/commonmark": "0.27.5",
+    "@types/debug": "4.1.7",
+    "@types/fs-extra": "9.0.13",
+    "@types/glob": "7.2.0",
+    "@types/yargs": "17.0.10",
+    "@typescript-eslint/eslint-plugin": "5.26.0",
+    "@typescript-eslint/parser": "5.26.0",
+    "eslint": "8.16.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "17.0.0",
+    "eslint-plugin-import": "2.26.0",
+    "husky": "8.0.1",
+    "lint-staged": "12.4.2",
+    "typescript": "4.7.2"
+  }
+}

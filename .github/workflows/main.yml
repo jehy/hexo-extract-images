@@ -1,0 +1,37 @@
+name: Test
+on:
+  push:
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+        node_version:
+          - 16
+          - 17
+        architecture:
+          - x64
+    name: Node ${{ matrix.node_version }} - ${{ matrix.architecture }} on ${{ matrix.os }}
+    steps:
+      - name: fix line ending for windows
+        run: git config --global core.autocrlf false && git config --global core.eol lf
+
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}
+          architecture: ${{ matrix.architecture }}
+
+      - name: install
+        run: npm ci
+
+      - name: build
+        run: npm run build
+
+      - name: lint
+        run: npm run lint
